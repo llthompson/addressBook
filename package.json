@@ -1,0 +1,5 @@
+{
+    "scripts": {
+        "play": "node main.js"
+    }
+}
