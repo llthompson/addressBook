@@ -42,11 +42,11 @@ function toggleMoreInfo(li, dobDate) {
         const ul = document.createElement('ul');
         ul.className = 'ulMoreInfo'; 
 
-        const options = { month: 'short', day: 'numeric' };
+        const options = { month: 'short', day: 'numeric', year: 'numeric' };
         const formattedDob = new Date(dobDate).toLocaleString('en-US', options);
 
         const dobLi = document.createElement('li');
-        dobLi.textContent = `DOB: ${formattedDob}`;
+        dobLi.textContent = `Birthday: ${formattedDob}`;
 
         ul.appendChild(dobLi);
         li.appendChild(ul);
