@@ -52,12 +52,11 @@ ul {
    flex-direction: row;
    flex-wrap: wrap;
    justify-content: space-evenly;
-   
+   /* background-color: purple; */
 }
 
-li {
-    list-style-type: none;
-    padding: 10px;
+.userItem {
+    background-color: white;
     display: flex;
     flex-direction: column;
     border-style: solid;
@@ -67,8 +66,15 @@ li {
     width: 25%;
     height: 50%;
     margin-bottom: 10px;
-    box-shadow: 3px 3px 6px #00000033;
-    background-color: white;
+}
+
+
+li {
+    list-style-type: none;
+    padding: 10px;
+   
+    /* box-shadow: 3px 3px 6px #00000033; */
+    /* background-color: aqua; */
 }
 
 img {

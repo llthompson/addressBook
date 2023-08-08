@@ -9,30 +9,57 @@ async function fetchUsers() {
 
 
 const displayUser = () => {
-    const aUser = document.getElementById('a-User')
-    // console.log('is there a user', userArray)
+    const aUser = document.getElementById('a-User');
 
     userArray.forEach((user, index) => {
-        console.log('here', user.name.first)
-        const li = document.createElement('li')
-        const pic = document.createElement('img')
+        const li = document.createElement('li');
+        li.className = 'userItem'; // Assign class 'userItem' to the <li> element
+
+        const pic = document.createElement('img');
         pic.src = user.picture.large;
         li.appendChild(pic);
-        const text = document.createTextNode(`${user.name.first} ${user.name.last}`)
-        const moreInfo = document.createTextNode(` ${user.dob.date}`)
-        li.appendChild(text)
-        li.appendChild(moreInfo)
-        aUser.append(li)
-    })
+
+        const text = document.createTextNode(`${user.name.first} ${user.name.last}`);
+        const textLi = document.createElement('li');
+        textLi.className = 'liName'; // Add class 'liName' for the user's name
+        textLi.appendChild(text);
+        li.appendChild(textLi);
+
+        const moreInfoButton = document.createElement('button');
+        moreInfoButton.textContent = 'More Info';
+        moreInfoButton.addEventListener('click', () => toggleMoreInfo(li, user.dob.date));
+        li.appendChild(moreInfoButton);
+
+        aUser.appendChild(li);
+    });
+};
+
+// Rest of your code remains the same
+
+
+function toggleMoreInfo(li, dobDate) {
+    const ulMoreInfo = li.querySelector('.ulMoreInfo');
+
+    if (!ulMoreInfo) {
+        const ul = document.createElement('ul');
+        ul.className = 'ulMoreInfo'; // Add class 'ulMoreInfo' for the additional info
+
+        const options = { month: 'short', day: 'numeric' };
+        const formattedDob = new Date(dobDate).toLocaleString('en-US', options);
+
+        const dobLi = document.createElement('li');
+        dobLi.textContent = `DOB: ${formattedDob}`;
+
+        ul.appendChild(dobLi);
+        li.appendChild(ul);
+    } else {
+        ulMoreInfo.remove();
+    }
 }
 
 (async () => {
-    const users = await fetchUsers()
+    const users = await fetchUsers();
 
-    userArray.push(...users)
-displayUser()
-
-// console.log('final test', userArray)
-
-})()
-
+    userArray.push(...users);
+    displayUser();
+})();
