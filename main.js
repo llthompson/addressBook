@@ -13,7 +13,7 @@ const displayUser = () => {
 
     userArray.forEach((user, index) => {
         const li = document.createElement('li');
-        li.className = 'userItem'; // Assign class 'userItem' to the <li> element
+        li.className = 'userItem'; 
 
         const pic = document.createElement('img');
         pic.src = user.picture.large;
@@ -21,7 +21,7 @@ const displayUser = () => {
 
         const text = document.createTextNode(`${user.name.first} ${user.name.last}`);
         const textLi = document.createElement('li');
-        textLi.className = 'liName'; // Add class 'liName' for the user's name
+        textLi.className = 'liName'; 
         textLi.appendChild(text);
         li.appendChild(textLi);
 
@@ -34,15 +34,13 @@ const displayUser = () => {
     });
 };
 
-// Rest of your code remains the same
-
 
 function toggleMoreInfo(li, dobDate) {
     const ulMoreInfo = li.querySelector('.ulMoreInfo');
 
     if (!ulMoreInfo) {
         const ul = document.createElement('ul');
-        ul.className = 'ulMoreInfo'; // Add class 'ulMoreInfo' for the additional info
+        ul.className = 'ulMoreInfo'; 
 
         const options = { month: 'short', day: 'numeric' };
         const formattedDob = new Date(dobDate).toLocaleString('en-US', options);

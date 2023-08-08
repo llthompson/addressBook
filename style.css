@@ -21,7 +21,7 @@ h1 {
 }
 
 
-input {
+/* input {
     margin: 0;
     padding: 2px;
     border: 2px solid #646464;
@@ -31,19 +31,19 @@ input {
     border: 2px solid #646464;
     border-radius: 5px;
     box-shadow: 2px 2px 5px #00000033;
-}
+} */
 
 button {
     font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    color: #b50965;
+    font-weight: 300;
+    font-size: 16px;
+    color: #646464;
     border: 2px solid #646464;
     border-radius: 5px;
-    box-shadow: 2px 2px 5px #00000033;
-    background-color: white;
+    box-shadow: 2px 2px 2px #00000033;
+    background-color: #e9e3e3;
     width: fit-content;
-    margin: 10px;
+    margin: 2px auto;
 }
 
 ul {
@@ -72,9 +72,10 @@ ul {
 li {
     list-style-type: none;
     padding: 10px;
-   
-    /* box-shadow: 3px 3px 6px #00000033; */
-    /* background-color: aqua; */
+}
+
+.liName {
+    font-weight: 700;
 }
 
 img {
