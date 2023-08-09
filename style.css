@@ -7,43 +7,45 @@ body {
     text-align: center;
 }
 
+header {
+    background-color: #bfb9b9;
+    max-width: 84.5%;
+    margin: auto;
+    color: #777272;
+    text-align: center;
+    box-shadow: 10px 10px 20px #00000033;
+    padding: 20px;
+    border-radius: 6px;
+}
+
 h1 {
     display: block;
     text-align: center;
-    font-family: 'Pacifico', cursive;
-    color: #b50965;
-    font-size: 36px;
+    font-family: 'Orbitron', sans-serif;
+    /* color: #b50965; */
+    font-size: 78px;
     margin-top: 0;
     margin-bottom: 20px;
-    text-shadow: 3px 5px 1px #00000033;
-    letter-spacing: 4px;
+    text-shadow: 3px 5px 8px #5729295b;
     text-decoration: none;
 }
 
 
-/* input {
-    margin: 0;
-    padding: 2px;
-    border: 2px solid #646464;
-    font-size: 22px;
-    font-weight: 700;
-    color: #b50965;
-    border: 2px solid #646464;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px #00000033;
-} */
-
 button {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     font-weight: 300;
     font-size: 16px;
-    color: #646464;
-    border: 2px solid #646464;
-    border-radius: 5px;
+    letter-spacing: 4px;
+    color: #8a1b1b;
+    border: 2px solid #777676;
+    border-radius: 4px;
     box-shadow: 2px 2px 2px #00000033;
-    background-color: #e9e3e3;
-    width: fit-content;
+    background-color: #acaaaa;
+    /* background-color: white; */
+    /* width: 99%; */
     margin: 2px auto;
+    margin-bottom: 1px;
+    
 }
 
 ul {
@@ -52,7 +54,6 @@ ul {
    flex-direction: row;
    flex-wrap: wrap;
    justify-content: space-evenly;
-   /* background-color: purple; */
 }
 
 .userItem {
@@ -66,16 +67,34 @@ ul {
     width: 25%;
     height: 50%;
     margin-bottom: 10px;
+    box-shadow: 2px 2px 5px #00000033;
 }
 
 
 li {
     list-style-type: none;
-    padding: 10px;
+    padding-bottom: 5px;
 }
 
 .liName {
     font-weight: 700;
+}
+
+.ulMoreInfo {
+    font-size: 14px;
+    line-height: 14px;
+    justify-content: start;
+    padding: 5px;
+    padding-bottom: 0;
+    color: #8a1b1b;
+    background-color: #acaaaa;
+    /* background-color: white; */
+    /* border: 2px solid #8a1b1b; */
+
+    border-radius: 4px;
+    border: 2px solid #777676;
+    /* text-align: right; */
+    /* align-items: ; */
 }
 
 img {
@@ -86,7 +105,7 @@ img {
 
 
 @media (max-width: 550px) {
-    main {
-        max-width: 80%;
+    header {
+        background-color: aqua;
     }
 }

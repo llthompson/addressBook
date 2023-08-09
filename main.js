@@ -26,8 +26,8 @@ const displayUser = () => {
         li.appendChild(textLi);
 
         const moreInfoButton = document.createElement('button');
-        moreInfoButton.textContent = 'More Info';
-        moreInfoButton.addEventListener('click', () => toggleMoreInfo(li, user.dob.date));
+        moreInfoButton.textContent = 'Classified:'.toUpperCase();
+        moreInfoButton.addEventListener('click', () => toggleMoreInfo(li, user.dob.date, user.location.city, user.location.state, user.email));
         li.appendChild(moreInfoButton);
 
         aUser.appendChild(li);
@@ -35,20 +35,28 @@ const displayUser = () => {
 };
 
 
-function toggleMoreInfo(li, dobDate) {
+function toggleMoreInfo(li, dobDate, city, state, email) {
     const ulMoreInfo = li.querySelector('.ulMoreInfo');
 
     if (!ulMoreInfo) {
         const ul = document.createElement('ul');
         ul.className = 'ulMoreInfo'; 
 
-        const options = { month: 'short', day: 'numeric', year: 'numeric' };
+        const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
         const formattedDob = new Date(dobDate).toLocaleString('en-US', options);
 
         const dobLi = document.createElement('li');
-        dobLi.textContent = `Birthday: ${formattedDob}`;
+        dobLi.textContent = `DOB: ${formattedDob}`.toUpperCase();
+
+        const locLi = document.createElement('li');
+        locLi.textContent = `Location: ${city}, ${state}`.toUpperCase();
+
+        const emaLi = document.createElement('li');
+        emaLi.textContent = `${email}`.toUpperCase();
 
         ul.appendChild(dobLi);
+        ul.appendChild(locLi);
+        ul.appendChild(emaLi);
         li.appendChild(ul);
     } else {
         ulMoreInfo.remove();
