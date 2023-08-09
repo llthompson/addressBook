@@ -27,7 +27,7 @@ const displayUser = () => {
 
         const moreInfoButton = document.createElement('button');
         moreInfoButton.textContent = 'Classified:'.toUpperCase();
-        moreInfoButton.addEventListener('click', () => toggleMoreInfo(li, user.dob.date, user.location.city, user.location.state, user.email));
+        moreInfoButton.addEventListener('click', () => toggleMoreInfo(li, user.dob.date, user.location.coordinates.latitude, user.location.coordinates.longitude, user.login.uuid, user.login.username));
         li.appendChild(moreInfoButton);
 
         aUser.appendChild(li);
@@ -35,7 +35,7 @@ const displayUser = () => {
 };
 
 
-function toggleMoreInfo(li, dobDate, city, state, email) {
+function toggleMoreInfo(li, dobDate, latitude, longitude, uuid, username) {
     const ulMoreInfo = li.querySelector('.ulMoreInfo');
 
     if (!ulMoreInfo) {
@@ -45,19 +45,25 @@ function toggleMoreInfo(li, dobDate, city, state, email) {
         const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
         const formattedDob = new Date(dobDate).toLocaleString('en-US', options);
 
+        const uidLi = document.createElement('li');
+        const uuidParts = uuid.split('-');
+        uidLi.textContent = `uuid: ${uuidParts[0]}`.toUpperCase();
+
         const dobLi = document.createElement('li');
         dobLi.textContent = `DOB: ${formattedDob}`.toUpperCase();
 
         const locLi = document.createElement('li');
-        locLi.textContent = `Location: ${city}, ${state}`.toUpperCase();
+        locLi.textContent = `Coordinates: ${latitude}, ${longitude}`.toUpperCase();
 
-        const emaLi = document.createElement('li');
-        emaLi.textContent = `${email}`.toUpperCase();
+        const usrLi = document.createElement('li');
+        usrLi.textContent = `Code word: ${username}`.toUpperCase();
 
+        ul.appendChild(uidLi);
         ul.appendChild(dobLi);
         ul.appendChild(locLi);
-        ul.appendChild(emaLi);
+        ul.appendChild(usrLi);
         li.appendChild(ul);
+
     } else {
         ulMoreInfo.remove();
     }

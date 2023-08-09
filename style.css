@@ -80,14 +80,20 @@ li {
 .ulMoreInfo {
     font-size: 14px;
     line-height: 14px;
-    justify-content: start;
     padding: 5px;
     padding-bottom: 0;
     color: #8a1b1b;
     background-color: #acaaaa;
     border-radius: 4px;
     border: 2px solid #777676;
+    width: 100%;
+    text-align: left;
 }
+
+.ulMoreInfo li {
+    width: 100%;
+}
+
 
 img {
     border-radius: 5px;
@@ -95,11 +101,7 @@ img {
 }
 
 
-@media (max-width: 550px) {
-    header {
-        background-color: aqua;
-    }
-
+@media (max-width: 740px) {
     h1 {
         font-size: 54px;
     }
@@ -109,11 +111,22 @@ img {
         flex-direction: column;
         flex-wrap: nowrap;
         align-items: center;
+        margin-left: 5px;
+        /* margin-right: 10px; */
     }
 
     .userItem {
         width: 95%;
-        margin: 10px auto;
+        /* margin: 10px auto; */
+    }
+
+    .ulMoreInfo li {
+        width: 95%;
+
+    }
+
+    .ulMoreInfo {
+        width: 93.5%;
     }
 }
   
